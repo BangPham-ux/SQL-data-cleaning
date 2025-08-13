@@ -68,4 +68,9 @@ SET city = SUBSTR(full_address, INSTR(full_address, ',') + 1,INSTR(SUBSTR(full_a
 UPDATE club_member_info_cleaned
 SET state = SUBSTR(full_address,INSTR(full_address, ',') + INSTR(SUBSTR(full_address, INSTR(full_address, ',') + 1), ',') + 1)
 ```
-
+#Cập nhật giá trị NULL cho cột job_title nếu giá trị rỗng
+```
+UPDATE club_member_info_cleaned
+SET job_title = NULL
+WHERE job_title = ''
+```
