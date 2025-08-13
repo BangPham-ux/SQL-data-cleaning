@@ -56,7 +56,7 @@ ALTER TABLE club_member_info_cleaned ADD COLUMN state  TEXT;
 ```
 UPDATE club_member_info_cleaned
 SET
-  street = TRIM(substr(full_address, 1, instr(full_address, ',') - 1))
+  street = TRIM(SUBSTR(full_address, 1, INSTR(full_address, ',') - 1))
 ```
 #Cập nhật dữ liệu cho cột city
 ```
