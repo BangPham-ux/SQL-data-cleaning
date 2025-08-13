@@ -46,4 +46,9 @@ UPDATE club_member_info_cleaned
 SET marital_status = 'divorced'
 WHERE marital_status = 'divored'
 ```
-#Cập nhật 
+#Cột full_street tách thành 3 cột (street, city, state)
+```
+ALTER TABLE club_member_info_cleaned ADD COLUMN street TEXT;
+ALTER TABLE club_member_info_cleaned ADD COLUMN city   TEXT;
+ALTER TABLE club_member_info_cleaned ADD COLUMN state  TEXT;
+```
