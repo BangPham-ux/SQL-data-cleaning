@@ -17,3 +17,32 @@ CREATE TABLE club_member_info_cleaned (
 INSERT INTO club_member_info_cleaned
 SELECT * FROM club_member_info;
 ```
+---- 
+#Vấn đề: Dữ liệu cột full_name không nhất quán về trường hợp chữ (hoa/thường), có khoảng trống dầu dòng
+
+#Xóa khoảng trống đầu dòng
+```
+UPDATE club_member_info_cleaned
+SET full_name = TRIM(full_name)
+```
+---- 
+#Cập nhật dữ liệu bằng chữ hoa
+```
+UPDATE club_member_info_cleaned
+SET full_name = UPPER(full_name);
+```
+---- 
+#Vấn đề: Dữ liệu cột Age có giá trị bị thiếu và giá trị không hợp lệ
+
+---- 
+#Thay đổi tên cột
+```
+ALTER TABLE club_member_info_cleaned
+RENAME COLUMN martial_status TO marital_status;
+```
+#Sửa lỗi chính tả 
+```
+UPDATE club_member_info_cleaned
+SET marital_status = 'divorced'
+WHERE marital_status = 'divored'
+```
