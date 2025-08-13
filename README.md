@@ -46,3 +46,4 @@ UPDATE club_member_info_cleaned
 SET marital_status = 'divorced'
 WHERE marital_status = 'divored'
 ```
+#Cập nhật 
