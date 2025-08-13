@@ -65,3 +65,7 @@ SET city = SUBSTR(full_address, INSTR(full_address, ',') + 1,INSTR(SUBSTR(full_a
 ```
 #Cập nhật dữ liệu cho cột state
 ```
+UPDATE club_member_info_cleaned
+SET state = SUBSTR(full_address,INSTR(full_address, ',') + INSTR(SUBSTR(full_address, INSTR(full_address, ',') + 1), ',') + 1)
+```
+
